@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Máy Tính Cộng Trừ Nhân Chia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+    }
+    input {
+      width: 80%;
+      padding: 8px;
+      margin: 8px 0;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Máy Tính Đơn Giản</h2>
+
+    <input type="number" id="so1" placeholder="Nhập số thứ nhất"><br>
+    <input type="number" id="so2" placeholder="Nhập số thứ hai"><br>
+
+    <button onclick="cong()">+</button>
+    <button onclick="tru()">−</button>
+    <button onclick="nhan()">×</button>
+    <button onclick="chia()">÷</button>
+
+    <h3 id="ketqua">Kết quả: </h3>
+  </div>
+
+  <script>
+    function getInputs() {
+      const a = parseFloat(document.getElementById("so1").value);
+      const b = parseFloat(document.getElementById("so2").value);
+      if (isNaN(a) || isNaN(b)) {
+        alert("Vui lòng nhập đủ hai số!");
+        return null;
+      }
+      return { a, b };
+    }
+
+    function cong() {
+      const input = getInputs();
+      if (!input) return;
+      const kq = input.a + input.b;
+      document.getElementById("ketqua").innerText = "Kết quả: " + kq;
+    }
+  </script>
+
+  <!-- Gọi 3 file JS bên ngoài -->
+  <script src="tru.js"></script>
+  <script src="nhan.js"></script>
+  <script src="chia.js"></script>
+</body>
+</html>
